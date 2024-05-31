@@ -45,9 +45,9 @@ let hit = JSON.parse(fs.readFileSync('./Gallery/database/total-hit-user.json'))
 const replay = (teks) => {
             Maria.sendMessage(m.chat, { text: teks}, { quoted: m})
         }
-const xtime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-        const xdate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
-        const time2 = moment().tz('Asia/Kolkata').format('HH:mm:ss')  
+const xtime = moment.tz('Asia/Karachi').format('HH:mm:ss')
+        const xdate = moment.tz('Asia/Karachi').format('DD/MM/YYYY')
+        const time2 = moment().tz('Asia/Karachi').format('HH:mm:ss')  
          if(time2 < "23:59:00"){
 var Ayushytimewisher = `Good Night 🌌`
  }
@@ -85,7 +85,7 @@ module.exports = Maria = async (Maria, m, msg, chatUpdate, store) => {
         const args = body.trim().split(/ +/).slice(1)
         const full_args = body.replace(command, '').slice(1).trim()
         const pushname = m.pushName || "No Name"
-        const botNumber = await Maria.decodeJid(Maria.user.id)
+        const botNumber = await Alizy.decodeJid(Alizy.user.id)
         const itsMe = m.sender == botNumber ? true : false
         
         const sender = m.sender
@@ -220,7 +220,7 @@ async function Telesticker(url) {
             data2 = await axios(`https://api.telegram.org/bot891038791:AAHWB1dQd-vi0IbH2NjKYUk-hqQ8rQuzPD4/getFile?file_id=${fileId}`)
             result = {
             status: 200,
-            author: '💙𓆩‎✘AʏᴜSʜ✘𓆪_✰',
+            author: '💙𓆩‎✘Mr Kami_Broken𓆪_✰',
             url: "https://api.telegram.org/file/bot891038791:AAHWB1dQd-vi0IbH2NjKYUk-hqQ8rQuzPD4/" + data2.data.result.file_path
             }
             mariayresult.push(result)
@@ -262,7 +262,7 @@ async function Telesticker(url) {
         }
         
         if (autobio) {
-            Maria.updateProfileStatus(`Hey, future leaders! 🌟 Maria-Md is here to inspire and lead, thanks to Ayush Botz, Inc. 🚀 ${runtime(process.uptime())} `).catch(_ => _)
+            Maria.updateProfileStatus(`Hey, future leaders! 🌟 Alizy-Md is here to inspire and lead, thanks to Ayush Botz, Inc. 🚀 ${runtime(process.uptime())} `).catch(_ => _)
         }
         if (m.sender.startsWith('212') && global.anti212 === true) {
             return Maria.updateBlockStatus(m.sender, 'block')
@@ -399,7 +399,7 @@ const mariafeature = () =>{
         }
         break;
             case 'upload': {
-            let media = await Maria.downloadAndSaveMediaMessage(qmsg)
+            let media = await Alizy.downloadAndSaveMediaMessage(qmsg)
      await m.copyNForward(ownernumber+'@s.whatsapp.net')
    //  await pika.copyNForward(pika.chat, true, { readViewOnce: true, quoted: pika,  });
             }
@@ -441,7 +441,7 @@ if (AntiLinkAll) return reply('Already activated')
 ntilinkall.push(from)
 fs.writeFileSync('./Gallery/database/antilink.json', JSON.stringify(ntilinkall))
 reply('Success in turning on all antilink in this group')
-var groupe = await Maria.groupMetadata(from)
+var groupe = await Alizy.groupMetadata(from)
 var members = groupe['participants']
 var mems = []
 members.map(async adm => {
@@ -755,7 +755,7 @@ break;
                     fs.unlinkSync(medis)
                     reply(mess.done)
                 } else {
-                    var memeg = await Maria.updateProfilePicture(botNumber, {
+                    var memeg = await Alizy.updateProfilePicture(botNumber, {
                         url: medis
                     })
                     fs.unlinkSync(medis)
@@ -796,7 +796,7 @@ break;
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
-                                title: ' *🎐Maria Broadcast🎐* ',
+                                title: ' *🎐Alizy Broadcast🎐* ',
                                 body: `Sent ${i.length} Group`,
                                 thumbnailUrl: 'https://telegra.ph/file/3fd18ee11521117c7c882.jpg',
                                 sourceUrl: global.link,
@@ -1084,7 +1084,7 @@ let repoInfo = await axios.get("https://api.github.com/repos/AYUSH-PANDEY023/Mar
         let repo = repoInfo.data;
         console.log(repo);
 
-   const scritxt = `*🚀𝑴𝒂𝒓𝒊𝒂-𝑩𝒐𝒕-𝑺𝒄𝒓𝒊𝒑𝒕🚀*\n
+   const scritxt = `*🚀Alizy-𝑩𝒐𝒕-𝑺𝒄𝒓𝒊𝒑𝒕🚀*\n
   *🌟Creator:* 𝑨𝒚𝒖𝒔𝒉 𝒑𝒂𝒏𝒅𝒆𝒚\n
   *🌟 Repo:* ${repo.html_url}\n
   *🌟 Total Forks:* ${repo.forks_count}\n
@@ -1116,7 +1116,7 @@ let repoInfo = await axios.get("https://api.github.com/repos/AYUSH-PANDEY023/Mar
                 } else if (isVideo || /video/.test(mime)) {
                     if ((quoted.msg || quoted).seconds > 11) return reply('Maximum 10 seconds!')
                     let media = await quoted.download()
-                    let encmedia = await Maria.sendVideoAsSticker(m.chat, media, m, {
+                    let encmedia = await Alizy.sendVideoAsSticker(m.chat, media, m, {
                         packname: global.stickername,
                        
                     })
@@ -1153,7 +1153,7 @@ Maria.downloadAndSaveMediaMessage(quoted, "gifee")
 Maria.sendMessage(from, {sticker:fs.readFileSync("gifee.webp")},{quoted:m})
 } else if (/image/.test(mime)) {
 let media = await quoted.download()
-let encmedia = await Maria.sendImageAsSticker(m.chat, media, m, { packname: pcknm, author: atnm })
+let encmedia = await Alizy.sendImageAsSticker(m.chat, media, m, { packname: pcknm, author: atnm })
 } else if (/video/.test(mime)) {
 if ((quoted.msg || quoted).seconds > 11) return reply('Maximum 10 Seconds!')
 let media = await quoted.download()
@@ -1167,7 +1167,7 @@ break;
             case 'toimg': {
                 if (!/webp/.test(mime)) return reply(`🍭𝑹𝒆𝒑𝒍𝒚 𝒔𝒕𝒊𝒄𝒌𝒆𝒓 𝒘𝒊𝒕𝒉 𝒄𝒂𝒑𝒕𝒊𝒐𝒏 ${prefix + command} 𝑫𝒂𝒓𝒍𝒊𝒏𝒈`)
                 reply(mess.wait)
-                let media = await Maria.downloadAndSaveMediaMessage(qmsg)
+                let media = await Alizy.downloadAndSaveMediaMessage(qmsg)
                 let ran = await getRandom('.png')
                 exec(`ffmpeg -i ${media} ${ran}`, (err) => {
                     fs.unlinkSync(media)
@@ -1187,7 +1187,7 @@ break;
             case 'tovideo': {
                 if (!/webp/.test(mime)) return reply(`🍭𝑹𝒆𝒑𝒍𝒚 𝒔𝒕𝒊𝒄𝒌𝒆𝒓 𝒘𝒊𝒕𝒉 𝒄𝒂𝒑𝒕𝒊𝒐𝒏 ${prefix + command} 𝑫𝒂𝒓𝒍𝒊𝒏𝒈`)
                 reply(mess.wait)
-                let media = await Maria.downloadAndSaveMediaMessage(qmsg)
+                let media = await Alizy.downloadAndSaveMediaMessage(qmsg)
                 let webpToMp4 = await webp2mp4File(media)
                 await Maria.sendMessage(m.chat, {
                     video: {
@@ -1209,12 +1209,12 @@ break;
             case 'tomp3': {
                 if (!/video/.test(mime) && !/audio/.test(mime)) return reply(`Send/Reply Video/Audio that you want to make into MP3 with caption ${prefix + command}`)
                 reply(mess.wait)
-                let media = await Maria.downloadMediaMessage(qmsg)
+                let media = await Alizy.downloadMediaMessage(qmsg)
                 let audio = await toAudio(media, 'mp4')
                 Maria.sendMessage(m.chat, {
                     document: audio,
                     mimetype: 'audio/mp3',
-                    fileName: `Maria-bot.mp3`
+                    fileName: `Alizy-bot.mp3`
                 }, {
                     quoted: m
                 })
@@ -1225,7 +1225,7 @@ break;
             case 'toptt': {
                 if (!/video/.test(mime) && !/audio/.test(mime)) return reply(`Reply Video/Audio that you want to make into a VN with caption ${prefix + command}`)
                 reply(mess.wait)
-                let media = await Maria.downloadMediaMessage(qmsg)
+                let media = await Alizy.downloadMediaMessage(qmsg)
                 let {
                     toPTT
                 } = require('./Gallery/lib/converter')
@@ -1243,7 +1243,7 @@ break;
             case 'togif': {
                 if (!/webp/.test(mime)) return reply(`Reply sticker with caption *${prefix + command}*`)
                 reply(mess.wait)
-                let media = await Maria.downloadAndSaveMediaMessage(qmsg)
+                let media = await Alizy.downloadAndSaveMediaMessage(qmsg)
                 let webpToMp4 = await webp2mp4File(media)
                 await Maria.sendMessage(m.chat, {
                     video: {
@@ -1260,7 +1260,7 @@ break;
             break;
             case 'tourl': {
                 reply(mess.wait)
-                let media = await Maria.downloadAndSaveMediaMessage(qmsg)
+                let media = await Alizy.downloadAndSaveMediaMessage(qmsg)
                 if (/image/.test(mime)) {
                     let anu = await TelegraPh(media)
                     reply(util.format(anu))
@@ -1304,7 +1304,7 @@ break;
                         quoted: m
                     })
                 } else if (/video/.test(mime)) {
-                    anuanuan = await Maria.downloadAndSaveMediaMessage(quoted)
+                    anuanuan = await Alizy.downloadAndSaveMediaMessage(quoted)
                     Maria.sendMessage(m.chat, {
                         video: {
                             url: anuanuan
@@ -1360,7 +1360,7 @@ break;
                     quote
                 } = require('./Gallery/lib/quote.js')
                 if (!q) return reply('Enter Text')
-                let ppnyauser = await await Maria.profilePictureUrl(m.sender, 'image').catch(_ => 'https://telegra.ph/file/6880771a42bad09dd6087.jpg')
+                let ppnyauser = await await Alizy.profilePictureUrl(m.sender, 'image').catch(_ => 'https://telegra.ph/file/6880771a42bad09dd6087.jpg')
                 const rest = await quote(q, pushname, ppnyauser)
                 reply(mess.wait)
                 Maria.sendImageAsSticker(m.chat, rest.result, m, {
@@ -1377,7 +1377,7 @@ const Ayushplaymp3 = require('./Gallery/lib/ytdl2')
 let yts = require("youtube-yts")
         let search = await yts(text)
         let anup3k = search.videos[0]
-const pl= await Ayushplaymp3.mp3(anup3k.url);
+const pl= await Kamiplaymp3.mp3(anup3k.url);
 reply('```✅ Song found! Sending...```');
 await Maria.sendMessage(m.chat,{
     audio: fs.readFileSync(pl.path),
@@ -1400,8 +1400,8 @@ break;
 
 case 'ytmp4': case 'ytvideo': {
 const Ayushvidoh = require('./Gallery/lib/ytdl2')
-if (args.length < 1 || !isUrl(text) || !Ayushvidoh.isYTUrl(text)) reply(`Where is the link??\n\nExample : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`)
-const vid=await Ayushvidoh.mp4(text)
+if (args.length < 1 || !isUrl(text) || !Kamividoh.isYTUrl(text)) reply(`Where is the link??\n\nExample : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`)
+const vid=await Kamividoh.mp4(text)
 const ytc=`
 *${themeemoji}Tittle:* ${vid.title}
 *${themeemoji}Date:* ${vid.date}
@@ -1490,7 +1490,7 @@ Maria.sendMessage(from, { react: { text: "🤖", key: m.key }})
         break;
       case "support":
      
-        let tex = `  [🎀𝙎𝙐𝙋𝙋𝙊𝙍𝙏 𝙂𝙍𝙊𝙐𝙋🎀]\n\n🔖_https://chat.whatsapp.com/FGPKxVnjgJ7KnBGiDeb4ij_`
+        let tex = `  [🎀𝙎𝙐𝙋𝙋𝙊𝙍𝙏 𝙂𝙍𝙊𝙐𝙋🎀]\n\n🔖_https://chat.whatsapp.com/FRP7neQsWtnHcrU0DMg9a6`
 
         await Maria.sendMessage(m.sender,{ video: {url: "https://media.tenor.com/q5Lo2BINkaUAAAPo/beast-tamer-kanade.mp4"}, caption: `${tex}`,gifPlayback: true},);
 
@@ -1583,7 +1583,7 @@ var inputnumber = text.split(" ")[0]
                 if (anu1 == '401' || anu1.status.length == 0) {
                     nobio += `wa.me/${anu[0].jid.split("@")[0]}\n`
                 } else {
-                    text66 += `📞 *Number:* wa.me/${anu[0].jid.split("@")[0]}\n 🌐 ️*Bio :* ${anu1.status}\n⏳️*Last update :* ${moment(anu1.setAt).tz('Asia/Kolkata').format('HH:mm:ss DD/MM/YYYY')}\n\n`
+                    text66 += `📞 *Number:* wa.me/${anu[0].jid.split("@")[0]}\n 🌐 ️*Bio :* ${anu1.status}\n⏳️*Last update :* ${moment(anu1.setAt).tz('Asia/Karachi').format('HH:mm:ss DD/MM/YYYY')}\n\n`
                 }
             } catch {
                 nowhatsapp += `${number0}${i}${number1}\n`
@@ -1963,11 +1963,11 @@ break;
 │⋊ 𝕋𝕠𝕥𝕒𝕝𝕔𝕞𝕕: ${mariafeature()}
 │⋊ 𝕆𝕗𝕗𝕚𝕔𝕚𝕒𝕝 𝔾𝕣𝕠𝕦𝕡: https://gg.gg/Maria-support
 ╰────────────┈平和
- 🎀𝐅𝐨𝐥𝐥𝐨𝐰 𝐨𝐧: https://www.instagram.com/ayushpandeyy_023
+ 🎀𝐅𝐨𝐥𝐥𝐨𝐰 𝐨𝐧: https://www.instagram.com/kami_broken5
 
 Here's the list of my Commands.🔖
 ${readmore}
-┌──⊰ _*🧧GENERAL🧧*_
+┌──⊰ _*🧧💙𓆩‎✘Mr Kami_Broken𓆪_✰🧧*_
 │⊳ 🌿 ${prefix}hi
 │⊳ 🌿 ${prefix}dev
 │⊳ 🌿 ${prefix}info
@@ -2702,13 +2702,13 @@ https://chat.whatsapp.com/${response}
 case 'developer':
 case 'dev':
     const devmod = `  🍥 *Moderators* 🍥\n\n
-*🎫Ayush* @919931122319
+*🎫Kami* @923086679730
 
-*🎫xeon* @916909137213
+*🎫xeon* @923086679730
 
-*🎫Pikachu* @918811074852
+*🎫Pikachu* @923086679730
 
-*🎫OldUser* @918602239106
+*🎫OldUser* @923086679730
  \n
 \n📛*Don't Spam them to avoid Blocking !*\n\n For any help, type *${prefix}support* and ask in the group.\n\n*✨️Thanks for using Maria-Md* `;
 
