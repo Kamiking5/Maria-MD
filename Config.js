@@ -13,7 +13,7 @@ global.botname = process.env.BOTNAME || "ALIZY-𝐌𝐃",//name of the bot
 
 //sticker details
 global.stickername = process.env.STICKER || "💙𓆩‎✘Mr Kami_Broken𓆪_✰",
-global.packname = 'Sticker By'
+global.packname = 'Kami 🥰 '
 global.author = process.env.AUTHOR || "💙𓆩‎✘Mr Kami_Broken𓆪_✰",
 //console view/theme
 global.themeemoji = '🧩'
